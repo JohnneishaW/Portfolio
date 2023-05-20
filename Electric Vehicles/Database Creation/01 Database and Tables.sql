@@ -1,5 +1,6 @@
 CREATE DATABASE ElectricVehicles;
 
+USE ElectricVehicles;
 CREATE TABLE StateRegistrations(
 StateID int auto_increment PRIMARY KEY,
 State varchar(255) NOT NULL,
@@ -31,9 +32,9 @@ State varchar(100),
 PostalCode int(5),
 2015HB2778ExemptionEligibility bool,
 2019HB2042CAFVEligibility bool,
-2019HB2042ElectricRangeRequirement bool,
-2019HB2042SaleDateRequirement bool,
-2019HB2042SalePriceValueRequirement bool,
+2019HB2042ElectricRangeRequirementMet bool,
+2019HB2042SaleDateRequirementMet bool,
+2019HB2042SalePriceValueRequirementMet bool,
 2019HB2042BatteryRangeRequirement text,
 2019HB2042PurchaseDateRequirement text,
 2019HB2042SalePriceValueRequirement text,
