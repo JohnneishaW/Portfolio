@@ -1,14 +1,14 @@
-CREATE DATABASE ElectricVehicles;
+CREATE DATABASE ElectricVehicles; 
 
 USE ElectricVehicles;
 CREATE TABLE StateRegistrations(
-StateID int auto_increment PRIMARY KEY,
-State varchar(255) NOT NULL,
-RegistrationCount int
+	StateID int PRIMARY KEY IDENTITY(1,1), --identity used for auto increment ID
+	State varchar(255) NOT NULL,
+	RegistrationCount int
 );
 
 CREATE TABLE VehicleRegistration(
-VehicleRegID int auto_increment PRIMARY KEY,
+VehicleRegID int PRIMARY KEY IDENTITY(1,1),
 CAFVehicleType varchar(255),
 VIN varchar(50),
 DOLVehicleID varchar(50),
@@ -21,27 +21,27 @@ OdometerReading int,
 OdometerCode text,
 VehCondition varchar(100),
 SalePrice int,
-SaleDate datetime,
+SaleDate date,
 BaseMSRP int,
 TransactionType varchar(255),
 DOLTransactionDate datetime,
-TransactionYear year,
+TransactionYear int,
 County varchar(100),
 City varchar(100),
 State varchar(100),
-PostalCode int(5),
-2015HB2778ExemptionEligibility bool,
-2019HB2042CAFVEligibility bool,
-2019HB2042ElectricRangeRequirementMet bool,
-2019HB2042SaleDateRequirementMet bool,
-2019HB2042SalePriceValueRequirementMet bool,
-2019HB2042BatteryRangeRequirement text,
-2019HB2042PurchaseDateRequirement text,
-2019HB2042SalePriceValueRequirement text,
-ElectricVehicleFeePaid bool,
-TransportationElectrificationFeePaid bool,
-HybridVehicleElectrificationFeePaid bool,
-2020CensusTract int(100),
-LegislativeDistrict int(50),
+PostalCode int,
+HB2778ExemptionEligibility2015 BIT, --bit is a bool (true/false)
+HB2042CAFVEligibility2019 BIT,
+HB2042ElectricRangeRequirementMet2019 BIT,
+HB2042SaleDateRequirementMet2019 BIT,
+HB2042SalePriceValueRequirementMet2019 BIT,
+HB2042BatteryRangeRequirement2019 text,
+HB2042PurchaseDateRequirement2019 text,
+HB2042SalePriceValueRequirement2019 text,
+ElectricVehicleFeePaid BIT,
+TransportationElectrificationFeePaid BIT,
+HybridVehicleElectrificationFeePaid BIT,
+CensusTract2020 int,
+LegislativeDistrict int,
 ElectricUtility text
 );
