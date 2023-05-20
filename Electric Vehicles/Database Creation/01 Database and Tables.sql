@@ -1,6 +1,14 @@
-CREATE DATABASE ElectricVehicles; 
+/*
+Create Database - 
+If using MYSQL: CREATE DATABASE ElectricVehicles; 
 
-USE ElectricVehicles;
+SSMS: Open server. Right-click on 'Databases'. Select 'New Database'. Enter name and press ok.
+If you do not have a database server, you can create a local one using this command line prompt:
+sqllocaldb create "name"
+
+*/
+
+USE ElectricVehicles; --ElectricVehicles is the database.
 CREATE TABLE StateRegistrations(
 	StateID int PRIMARY KEY IDENTITY(1,1), --identity used for auto increment ID
 	State varchar(255) NOT NULL,
