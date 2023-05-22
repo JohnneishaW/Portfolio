@@ -1,0 +1,71 @@
+https://data.wa.gov/Transportation/Electric-Vehicle-Population-Data/f6w7-q2d2
+
+WA Data:
+IN POWER QUERY EDITOR - 
+
+Electric_Vehicle_Population_Data_WA: 
+1) Clean and trim data to remove any unintentional spaces.
+ - Select all columns. Transform > Format > Clean > Trim
+
+2) State Column - Change instance of 'WA' to 'Washington'
+ - Select 'State' column. Tranform > Replace Values Option
+ 
+3) Change case for 'Make', 'Model', and 'Electric Utility' from all uppercase to Capitalize Each Word
+ - Select 'Make', 'Model', and 'Electric Utility' columns. Transform > Format > Capitalize Each Word
+ 
+4) Split 'Electric Vehicle Type' onto 2 Columns - 'Electric Vehicle Type' and 'Electric Vehicle Type ID'
+ - Select 'Electric Vehicle Type' column. Transform > Split Column > By Delimiter, split into 2 columns at each occurence of custom delimiter of parentheses '('
+ - Two columns now exist, 'Electric Vehicle Type.1' and 'Electric Vehicle Type.2'
+ - Select 'Electric Vehicle Type.2'. Transform > Split Column > By Delimiter, split into 1 column at each occurence of custom delimiter of parentheses ')'
+ - Rename 'Electric Vehicle Type.1' to 'Electric Vehicle Type Name'
+ - Rename 'Electric Vehicle Type.1' to 'Electric Vehicle Type ID'
+
+5) Rename 'VIN (1-10)' column to 'VIN'
+ 
+6) Condense CAFV Eligilibty Data to 'Yes', 'No', 'Unknown'
+ - Select 'Clean Alternative Fuel (CAFV) Eligibility'
+ - Add Column > Conditional Column
+ - Name column 'CAFV Eligibility'
+ - Use clauses to seperate data into 'Yes', 'No', 'Unknown' categories
+	'Clean Alternative Fuel (CAFV) Eligibility' contains Not eligible --> No
+	'Clean Alternative Fuel (CAFV) Eligibility' contains Unknown --> Unknown
+	Else Yes
+	
+7) Change Data Types
+ - Transform > Data Type
+ - Changes Needed:
+	Postal Code - Whole Number
+	Model Year - Whole Number
+	Electric Range - Whole Number
+	Base MSRP - Whole Number
+	Legiative District - Whole Number
+	2020 Census Tract - Whole Number
+ - Rest of data is text
+ 
+ ev-registration-counts-by-state:
+ 1) Clean and trim data to remove any unintentional spaces.
+ - Select all columns. Transform > Format > Clean > Trim
+ 2) Change Data Types
+ - Transform > Data Type
+ - Changes Needed:
+	Registration Count - Whole Number
+
+EXIT POWER QUERY.
+
+IN DATA VIEW:
+ 
+ Electric_Vehicle_Population_Data_WA: 
+1) Hide 'Clean Alternative Fuel (CAFV) Eligibility' column
+ - Right 'Clean Alternative Fuel (CAFV) Eligibility' column > Hide
+2) Remove summarization for several colums. Summarization > Don't Summarize
+	VIN
+	Postal Code
+	Model Year
+	Legislative District
+	DOL Vehicle ID
+	Point
+	2020 Census Tract
+3) All other number columns can summarize. 
+	
+ ev-registration-counts-by-state:
+ 1) Verify 'Registration Count column' summarizes
