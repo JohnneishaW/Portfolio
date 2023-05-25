@@ -20,6 +20,7 @@ ID int IDENTITY(1,1) PRIMARY KEY
 ,LastName varchar(30)
 ,Street varchar(50)
 ,City varchar(30)
+,State varchar(30)
 ,Zipcode int
 ,Phone int
 ,Email varchar(100)
@@ -41,6 +42,7 @@ ID int IDENTITY(1,1) PRIMARY KEY
 ,LastName varchar(30)
 ,Street varchar(50)
 ,City varchar(30)
+,State varchar(30)
 ,Zipcode int
 ,Phone int
 ,Email varchar(100)
@@ -75,6 +77,7 @@ ID int IDENTITY(1,1) PRIMARY KEY
 ,Name varchar(30)
 ,Street varchar(50)
 ,City varchar(30)
+,State varchar(30)
 ,Zipcode int
 ,Phone int
 ,OpenDate date
