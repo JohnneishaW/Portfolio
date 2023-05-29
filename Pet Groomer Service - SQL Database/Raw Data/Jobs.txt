@@ -1,0 +1,5 @@
+Groomer
+Cashier
+Supervisor
+Spa Attendant
+Warehouse Clerk

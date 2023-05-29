@@ -1,0 +1,86 @@
+Breed,Type
+Afghan Hound,dog
+Akita,dog
+Alaskan Malamute,dog
+Australian Shepherd,dog
+Basset Hound,dog
+Beagle,dog
+Bernese Mountain Dog,dog
+Bichon Frise,dog
+Border Collie,dog
+Boston Terrier,dog
+Boxer,dog
+Bulldog,dog
+Bullmastiff,dog
+Cairn Terrier,dog
+Cavalier King Charles Spaniel,dog
+Chihuahua,dog
+Chow Chow,dog
+Cocker Spaniel,dog
+Collie,dog
+Dachshund,dog
+Dalmatian,dog
+Doberman Pinscher,dog
+English Bulldog,dog
+French Bulldog,dog
+German Shepherd,dog
+Golden Retriever,dog
+Great Dane,dog
+Greyhound,dog
+Havanese,dog
+Irish Setter,dog
+Jack Russell Terrier,dog
+Labrador Retriever,dog
+Lhasa Apso,dog
+Maltese,dog
+Mastiff,dog
+Newfoundland,dog
+Papillon,dog
+Pekingese,dog
+Pembroke Welsh Corgi,dog
+Pit Bull,dog
+Pomeranian,dog
+Poodle,dog
+Pug,dog
+Rottweiler,dog
+Saint Bernard,dog
+Samoyed,dog
+Scottish Terrier,dog
+Shetland Sheepdog,dog
+Shih Tzu,dog
+Siberian Husky,dog
+Staffordshire Bull Terrier,dog
+Abyssinian,cat
+American Bobtail,cat
+American Curl,cat
+American Shorthair,cat
+Balinese,cat
+Bengal,cat
+Birman,cat
+Bombay,cat
+British Shorthair,cat
+Burmese,cat
+Chartreux,cat
+Cornish Rex,cat
+Devon Rex,cat
+Egyptian Mau,cat
+Exotic Shorthair,cat
+Havana Brown,cat
+Himalayan,cat
+Japanese Bobtail,cat
+Maine Coon,cat
+Manx,cat
+Norwegian Forest Cat,cat
+Ocicat,cat
+Persian,cat
+Ragdoll,cat
+Russian Blue,cat
+Scottish Fold,cat
+Siamese,cat
+Siberian,cat
+Singapura,cat
+Somali,cat
+Sphynx,cat
+Tonkinese,cat
+Turkish Angora,cat
+Turkish Van,cat
