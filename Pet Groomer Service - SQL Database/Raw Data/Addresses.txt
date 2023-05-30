@@ -8,19 +8,19 @@ Street,City,State,Zipcode
 876 Walnut Avenue,Hillcrest,OH,34567
 543 Spruce Court,Mountainview,WA,65432
 210 Magnolia Lane,Harborville,AZ,43210
-876 Apartment B,Cypress Avenue,Brookside,MI,67890
+876 Apartment B Cypress Avenue,Brookside,MI,67890
 5431 Chestnut Street,Oakville,GA,98765
 7892 Sycamore Drive,Riverside,TX,23456
-6543 Willow Lane,Apartment 12,Meadowbrook,NV,76543
+6543 Willow Lane Apartment 12,Meadowbrook,NV,76543
 3214 Poplar Road,Springdale,CO,32109
 8765 Redwood Avenue,Lakeside,OR,65432
 5436 Ash Street,Hillcrest,VA,21098
 987 Juniper Lane,Mountainview,UT,56789
 6541 Hickory Court,Rivertown,MN,89012
 3218 Fir Drive,Sunnyside,HI,45678
-876 Palm Avenue,Apartment 45,Willowville,NJ,76543
+876 Palm Avenue Apartment 45,Willowville,NJ,76543
 543 Beech Road,Springdale,PA,32109
-789 Maple Lane,Apartment 9A,Meadowbrook,TN,67890
+789 Maple Lane Apartment 9A,Meadowbrook,TN,67890
 654 Oak Street,Lakeside,NY,56789
 321 Cedar Avenue,Hillcrest,TX,45678
 876 Pine Drive,Mountainview,CA,32109
@@ -49,17 +49,17 @@ Street,City,State,Zipcode
 6789 Walnut Avenue,Hillside,OH,98765
 4321 Spruce Court,Mountainville,WA,21098
 8765 Magnolia Lane,Harborview,AZ,45678
-9876 Apartment C,Cypress Avenue,Brookville,MI,65432
+9876 Apartment C Cypress Avenue,Brookville,MI,65432
 5432 Chestnut Street,Oakside,GA,78901
 1098 Sycamore Drive,Riverside,TX,54321
-7654 Willow Lane,Apartment 34,Meadowville,NV,21098
+7654 Willow Lane Apartment 34,Meadowville,NV,21098
 3210 Poplar Road,Springview,CO,56789
 7654 Redwood Avenue,Lakeview,OR,89012
 2109 Ash Street,Hillville,VA,56789
 5678 Juniper Lane,Mountainville,UT,23456
 9012 Hickory Court,Riverdale,MN,65432
 3456 Fir Drive,Sunnyside,HI,32109
-7890 Palm Avenue,Apartment 56,Willowbrook,NJ,87654
+7890 Palm Avenue Apartment 56,Willowbrook,NJ,87654
 2345 Beech Road,Springside,PA,54321
 6789 Maple Lane,Meadowville,TN,10987
 4321 Oak Street,Lakeside,NY,45678
