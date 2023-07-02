@@ -304,7 +304,7 @@ def create_work_schedule():
         'EmployeeID': EmployeeID
     }
     df = pd.DataFrame(data)
-    print(df.head())
+    #print(df.head())
     return df
 
 
@@ -316,7 +316,7 @@ def create_appointment():
     employeeid = []
     workscheduleid = []
     starttime = []
-    date = []
+    dates = []
     for x in range(100):
         serviceid.append(service.iloc[random.randrange(0, (service.shape[0]) - 1), :])
         storeid.append(store.iloc[random.randrange(0, (store.shape[0]) - 1), :])
@@ -325,7 +325,7 @@ def create_appointment():
         employeeid.append(employee.iloc[random.randrange(0, (employee.shape[0]) - 1), :])
         workscheduleid.append(workSchedule.iloc[random.randrange(0, (workSchedule.shape[0]) - 1), :])
         starttime.append(time.fromisoformat(str(random.randrange(10, 24)) + ':' + str(random.randrange(10, 59)) + ':' + str(random.randrange(10, 59))+ '.' + str(random.randrange(100, 999))))
-        date.append(date.fromisoformat(str(random.randrange(2019, 2024)) + '-' + str(random.randrange(10, 12))+ '-' + str(random.randrange(10, 28))))
+        dates.append(date.fromisoformat(str(random.randrange(2019, 2024)) + '-' + str(random.randrange(10, 12))+ '-' + str(random.randrange(10, 28))))
     
     data = {
         'SerivceID': serviceid,
@@ -335,11 +335,11 @@ def create_appointment():
         'EmployeeID': employeeid,
         'WorkScheduleID': workscheduleid,
         'StartTime':starttime,
-        'Date': date,
+        'Date': dates,
     }
 
     df = pd.DataFrame(data)
-    print(df.head())
+    #print(df.head())
     return df
 
 
