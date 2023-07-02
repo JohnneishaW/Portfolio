@@ -229,8 +229,7 @@ def create_employee(firstNamesList, lastNamesList, parsedAddress):
 
 
 def create_pet(petNames, petBreeds,petStatus):
-   #TO DO OWNER 
-    #owner = []
+    owner = []
     name = []
     breeds = []
     petType = []
@@ -249,10 +248,11 @@ def create_pet(petNames, petBreeds,petStatus):
         birthday.append(date.fromisoformat(str(random.randrange(2019, 2024)) + '-' + str(random.randrange(10, 12))+ '-' + str(random.randrange(10, 28))))
         weight.append(random.randrange(5,30))
         status.append(petStatus[random.randrange(0, len(petStatus)-1)])
+        owner.append(petOwner.iloc[random.randrange(0, (petOwner.shape[0]) - 1), :])
                         
 
     data = {
-        #'PetOwnerID': Job,
+        'PetOwnerID': owner,
         'Name': name,
         'Breed': breeds,
         'Age': age,
@@ -262,7 +262,7 @@ def create_pet(petNames, petBreeds,petStatus):
         'Type': petType
     }
     df = pd.DataFrame(data)
-    # print(df.head())
+    #print(df.head())
     return df
 
 
@@ -277,7 +277,6 @@ def create_vaccination(vacList):
         expirDate.append(date.fromisoformat(str(random.randrange(2000, 2022)) + '-' + str(random.randrange(10, 12))+ '-' + str(random.randrange(10, 28))))
     
     data = {
-        #'PetOwnerID': Job,
         'Name': name,
         'Expiration': expirDate,
         'PetID': PetID
@@ -286,6 +285,41 @@ def create_vaccination(vacList):
     df = pd.DataFrame(data)
     #print(df.head())
     return df
+
+def create_appointment():
+    serviceid = []
+    storeid = []
+    petid = []
+    petownerid = []
+    employeeid = []
+    workscheduleid = []
+    starttime = []
+    date = []
+    for x in range(100):
+        serviceid.append(service.iloc[random.randrange(0, (service.shape[0]) - 1), :])
+        storeid.append(store.iloc[random.randrange(0, (store.shape[0]) - 1), :])
+        petid.append(pet.iloc[random.randrange(0, (pet.shape[0]) - 1), :])
+        petownerid.append(petOwner.iloc[random.randrange(0, (petOwner.shape[0]) - 1), :])
+        employeeid.append(employee.iloc[random.randrange(0, (employee.shape[0]) - 1), :])
+        workscheduleid.append(workschedule.iloc[random.randrange(0, (workschedule.shape[0]) - 1), :])
+        starttime.append(time.fromisoformat(str(random.randrange(10, 24)) + ':' + str(random.randrange(10, 59)) + ':' + str(random.randrange(10, 59))+ '.' + str(random.randrange(100, 999))))
+        date.append(date.fromisoformat(str(random.randrange(2019, 2024)) + '-' + str(random.randrange(10, 12))+ '-' + str(random.randrange(10, 28))))
+    
+    data = {
+        'SerivceID': serviceid,
+        'StoreID': storeid,
+        'PetID': petid,
+        'PetOwnerID': petownerid,
+        'EmployeeID': employeeid,
+        'WorkScheduleID': workscheduleid,
+        'StartTime':starttime,
+        'Date': date,
+    }
+
+    df = pd.DataFrame(data)
+    print(df.head())
+    return df
+
 
 if __name__ == '__main__':
     # Load File Data Into Data Structure
@@ -307,3 +341,4 @@ if __name__ == '__main__':
     employee = create_employee(firstNames, lastNames, parse_address(address, firstNames))
     pet = create_pet(petName, breeds,status)
     vaccination = create_vaccination(vaccinations)
+    appointment = create_appointment()
