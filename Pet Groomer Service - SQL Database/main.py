@@ -1,6 +1,7 @@
 import random
 import pandas as pd
 import numpy as np
+from datetime import time, date
 
 
 def load_file_into_numpy_array(filepath, delimiter):
@@ -37,7 +38,7 @@ def create_store(storeNameList, parsedAddress):
     openDate = []
     creatingPhone = []
     for item in storeNameList:
-        date = str(random.randrange(1, 12)) + '-' + str(random.randrange(1, 28)) + '-' + str(
+        date = str(random.randrange(1, 12)) + '/' + str(random.randrange(1, 28)) + '/' + str(
             random.randrange(2019, 2022))
         openDate.append(date)
 
@@ -57,34 +58,76 @@ def create_store(storeNameList, parsedAddress):
         'OpenDate': openDate
     }
     df = pd.DataFrame(data)
-    print(df.head())
+    #print(df.head())
     return df
 
 
 def create_service(serviceNames):
     allServices = {}
-    storeServices = [] #tuple of service name, cost, and duration (minutes)
+    #storeServices = [] #tuple of service name, cost, and duration (minutes)
     StoreID = []
     Name = []
     Cost = []
     Duration = []
     for item in store.index:
-        storeId = item
+        #storeId = item
         for serviceItem in serviceNames:
-            storeServices.append((serviceItem, random.randrange(1, 30), random.randrange(15, 45)))
+            #storeServices.append((serviceItem, random.randrange(1, 30), random.randrange(15, 45)))
+            StoreID.append(item)
+            Name.append(serviceItem)
+            Cost.append(random.randrange(1, 30))
+            Duration.append(random.randrange(15, 45))
+        #allServices[storeId] = storeServices
+        #storeServices = []
 
-        allServices[storeId] = storeServices
-        storeServices = []
-
-    print(list(allServices.values())[0][1][0])
+    #print(list(allServices.values())[0][1][0])
 
     data = {
-        'StoreID': allServices.keys(),
-        'Name': allServices.values(),
-        'Cost': allServices.keys(),
-        'Duration': allServices.keys()
+        'StoreID': StoreID,
+        'Name': Name,
+        'Cost': Cost,
+        'Duration': Duration
     }
     df = pd.DataFrame(data)
+    #print(df.head())
+    return df
+
+def create_shift(jobs):
+    Job = []
+    ShiftDate = []
+    ShiftStartTime = []
+    ShiftEndTime = []
+
+    counter = 0
+#IMPROVEMENT - ADD CONDITIONAL TO ADDRESS SINGLE DIGIT PART OF DATES AND TIME (I.E. IF 8 --> RETURN 08)
+    while counter<2:
+        for j in jobs:
+            Job.append(j)
+            print(j)
+            shiftdate = date.fromisoformat(str(
+            random.randrange(2019, 2024)) + '-' + str(random.randrange(10, 12))+ '-' + str(random.randrange(10, 28)))
+            ShiftDate.append(shiftdate)
+            
+            start = time.fromisoformat(str(random.randrange(10, 24)) + ':' + str(random.randrange(10, 59)) + ':' + str(
+            random.randrange(10, 59))+ '.' + str(random.randrange(100, 999)))
+            end = time.fromisoformat('00:00:00.000')
+
+            while(end<start):
+                end = time.fromisoformat(str(random.randrange(10, 24)) + ':' + str(random.randrange(10, 59)) + ':' + str(
+            random.randrange(10, 59))+ '.' + str(random.randrange(100, 999)))
+            
+            ShiftStartTime.append(start)
+            ShiftEndTime.append(end)
+        counter+=1
+
+    data = {
+        'Job': Job,
+        'ShiftDate': ShiftDate,
+        'ShiftStartTime': ShiftStartTime,
+        'ShiftEndTime': ShiftEndTime
+    }
+    df = pd.DataFrame(data)
+    print(df.head())
     return df
 
 
@@ -102,3 +145,5 @@ if __name__ == '__main__':
 
     store = create_store(storeName, parse_address(address, storeName))
     service = create_service(serviceNames)
+    shift = create_shift(jobFile)
+
