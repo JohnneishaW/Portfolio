@@ -128,7 +128,7 @@ def create_shift(jobs):
         'ShiftEndTime': ShiftEndTime
     }
     df = pd.DataFrame(data)
-    #print(df.head())
+    # print(df.head())
     return df
 
 
@@ -195,6 +195,7 @@ def create_employee(firstNamesList, lastNamesList, parsedAddress):
     CreatingPhone = []
     Email = []
     HireDate = []
+    StoreID = []
 
     for lastName in lastNamesList:
         LastName.append(lastName)
@@ -212,7 +213,10 @@ def create_employee(firstNamesList, lastNamesList, parsedAddress):
 
         Email.append(lastName + str(random.randrange(0, 100)) + "@gmail.com")
 
+        StoreID.append(store.iloc[random.randrange(0, (store.shape[0]) - 1), :])
+
     data = {
+        'StoreID': StoreID,
         'FirstName': FirstName,
         'LastName': LastName,
         'Street': parsedAddress[0],
@@ -284,8 +288,26 @@ def create_vaccination(vacList):
     }
 
     df = pd.DataFrame(data)
-    #print(df.head())
+    # print(df.head())
     return df
+
+
+def create_work_schedule():
+    ShiftID = []
+    EmployeeID = []
+
+    for x in range(100):
+        ShiftID.append(shift.iloc[random.randrange(0, (shift.shape[0]) - 1), :])
+        EmployeeID.append(employee.iloc[random.randrange(0, (employee.shape[0]) - 1), :])
+
+    data = {
+        'ShiftID': ShiftID,
+        'EmployeeID': EmployeeID
+    }
+    df = pd.DataFrame(data)
+    print(df.head())
+    return df
+
 
 if __name__ == '__main__':
     # Load File Data Into Data Structure
@@ -305,5 +327,6 @@ if __name__ == '__main__':
     shift = create_shift(jobFile)
     petOwner = create_pet_owner(firstNames, lastNames, parse_address(address, firstNames), status)
     employee = create_employee(firstNames, lastNames, parse_address(address, firstNames))
-    pet = create_pet(petName, breeds,status)
+    pet = create_pet(petName, breeds, status)
     vaccination = create_vaccination(vaccinations)
+    workSchedule = create_work_schedule()
