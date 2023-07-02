@@ -271,14 +271,10 @@ def create_vaccination(vacList):
     expirDate = []
     PetID = []
 
-    counter = 0
-
-    while counter<2:
-        for p in pet.index:
-            PetID.append(p)
+    for p in pet.index:
+        PetID.append(p)
         name.append(vacList[random.randrange(0, len(vacList)-1)])
         expirDate.append(date.fromisoformat(str(random.randrange(2000, 2022)) + '-' + str(random.randrange(10, 12))+ '-' + str(random.randrange(10, 28))))
-    counter+=1
     
     data = {
         #'PetOwnerID': Job,
