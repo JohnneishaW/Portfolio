@@ -92,6 +92,7 @@ def create_service(serviceNames):
     #print(df.head())
     return df
 
+
 def create_shift(jobs):
     Job = []
     ShiftDate = []
@@ -103,7 +104,7 @@ def create_shift(jobs):
     while counter<2:
         for j in jobs:
             Job.append(j)
-            print(j)
+            #print(j)
             shiftdate = date.fromisoformat(str(
             random.randrange(2019, 2024)) + '-' + str(random.randrange(10, 12))+ '-' + str(random.randrange(10, 28)))
             ShiftDate.append(shiftdate)
@@ -127,7 +128,103 @@ def create_shift(jobs):
         'ShiftEndTime': ShiftEndTime
     }
     df = pd.DataFrame(data)
-    print(df.head())
+    #print(df.head())
+    return df
+
+
+def create_pet_owner(firstNamesList, lastNamesList, parsedAddress, statusList):
+    FirstName = []
+    LastName = []
+    Phone = []
+    CreatingPhone = []
+    Email = []
+    AccCreationDate = []
+    LastLoggedIn = []
+    Status = []
+
+    for firstName in firstNamesList:
+        FirstName.append(firstName)
+        LastName.append(lastNamesList[random.randrange(0, len(lastNamesList)-1)])
+
+        # create phone number
+        for x in range(10):
+            CreatingPhone.append(random.randrange(0, 9))
+        Phone.append(''.join(map(str, CreatingPhone)))
+        CreatingPhone = []
+
+        Status.append(statusList[random.randrange(0, len(statusList)-1)])
+
+        accCreationDate = date.fromisoformat(str(
+            random.randrange(2019, 2023)) + '-' + str(random.randrange(10, 12)) + '-' + str(random.randrange(10, 28)))
+        AccCreationDate.append(accCreationDate)
+
+        lastLoggedIn = date.fromisoformat(str(
+            random.randrange(2019, 2023)) + '-' + str(random.randrange(10, 12)) + '-' + str(random.randrange(10, 28)))
+
+        if lastLoggedIn > accCreationDate:
+            LastLoggedIn.append(lastLoggedIn)
+        else:
+            lastLoggedIn = date.fromisoformat(str(
+                random.randrange(2019, 2023)) + '-' + str(random.randrange(10, 12)) + '-' + str(random.randrange(10, 28)))
+            LastLoggedIn.append(lastLoggedIn)
+
+        Email.append(firstName + str(random.randrange(0, 100)) + "@gmail.com")
+
+    data = {
+        'FirstName': FirstName,
+        'LastName': LastName,
+        'Street': parsedAddress[0],
+        'City': parsedAddress[1],
+        'State': parsedAddress[2],
+        'Zipcode': parsedAddress[3],
+        'Phone': Phone,
+        'Email': Email,
+        'AccCreationDate': AccCreationDate,
+        'LastLoggedIn': LastLoggedIn,
+        'Status': Status
+    }
+    df = pd.DataFrame(data)
+    #print(df.head())
+    return df
+
+
+def create_employee(firstNamesList, lastNamesList, parsedAddress):
+    FirstName = []
+    LastName = []
+    Phone = []
+    CreatingPhone = []
+    Email = []
+    HireDate = []
+
+    for lastName in lastNamesList:
+        LastName.append(lastName)
+        FirstName.append(firstNamesList[random.randrange(0, len(lastNamesList)-1)])
+
+        # create phone number
+        for x in range(10):
+            CreatingPhone.append(random.randrange(0, 9))
+        Phone.append(''.join(map(str, CreatingPhone)))
+        CreatingPhone = []
+
+        hireDate = date.fromisoformat(str(
+            random.randrange(2019, 2023)) + '-' + str(random.randrange(10, 12)) + '-' + str(random.randrange(10, 28)))
+        HireDate.append(hireDate)
+
+        Email.append(lastName + str(random.randrange(0, 100)) + "@gmail.com")
+
+    data = {
+        'FirstName': FirstName,
+        'LastName': LastName,
+        'Street': parsedAddress[0],
+        'City': parsedAddress[1],
+        'State': parsedAddress[2],
+        'Zipcode': parsedAddress[3],
+        'Phone': Phone,
+        'Email': Email,
+        'HireDate': HireDate,
+    }
+    df = pd.DataFrame(data)
+    #print(df.head())
     return df
 
 
@@ -146,4 +243,6 @@ if __name__ == '__main__':
     store = create_store(storeName, parse_address(address, storeName))
     service = create_service(serviceNames)
     shift = create_shift(jobFile)
+    petOwner = create_pet_owner(firstNames, lastNames, parse_address(address, firstNames), status)
+    employee = create_employee(firstNames, lastNames, parse_address(address, firstNames))
 
