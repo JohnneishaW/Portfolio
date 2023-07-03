@@ -38,10 +38,7 @@ def create_store(storeNameList, parsedAddress):
     openDate = []
     creatingPhone = []
     for item in storeNameList:
-        date = str(random.randrange(1, 12)) + '/' + str(random.randrange(1, 28)) + '/' + str(
-            random.randrange(2019, 2022))
-        openDate.append(date)
-
+        openDate.append(date.fromisoformat(str(random.randrange(2000, 2022)) + '-' + str(random.randrange(10, 12))+ '-' + str(random.randrange(10, 28))))
         # create phone number
         for x in range(10):
             creatingPhone.append(random.randrange(0, 9))
@@ -179,7 +176,7 @@ def create_pet_owner(firstNamesList, lastNamesList, parsedAddress, statusList):
         'Zipcode': parsedAddress[3],
         'Phone': Phone,
         'Email': Email,
-        'AccCreationDate': AccCreationDate,
+        'AcctCreationDate': AccCreationDate,
         'LastLoggedIn': LastLoggedIn,
         'Status': Status
     }
@@ -328,7 +325,7 @@ def create_appointment():
         dates.append(date.fromisoformat(str(random.randrange(2019, 2024)) + '-' + str(random.randrange(10, 12))+ '-' + str(random.randrange(10, 28))))
     
     data = {
-        'SerivceID': serviceid,
+        'ServiceID': serviceid,
         'StoreID': storeid,
         'PetID': petid,
         'PetOwnerID': petownerid,
@@ -365,3 +362,5 @@ if __name__ == '__main__':
     vaccination = create_vaccination(vaccinations)
     workSchedule = create_work_schedule()
     appointment = create_appointment()
+
+    
